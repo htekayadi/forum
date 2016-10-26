@@ -20,3 +20,250 @@ Migrating to CreatePosts (20161026162721)
   [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES (?)[0m  [["version", "20161026162721"]]
   [1m[35m (101.0ms)[0m  commit transaction
   [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+
+
+Started GET "/posts/new" for ::1 at 2016-10-26 23:34:33 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#new as HTML
+Completed 500 Internal Server Error in 150ms
+
+ActionView::MissingTemplate (Missing template posts/new, application/new with {:locale=>[:en], :formats=>[:html], :variants=>[], :handlers=>[:erb, :builder, :raw, :ruby, :coffee, :haml, :jbuilder]}. Searched in:
+  * "C:/Users/dJavaAddict/Documents/railscode/forum/app/views"
+  * "C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/devise-3.4.1/app/views"
+):
+  actionview (4.2.0) lib/action_view/path_set.rb:46:in `find'
+  actionview (4.2.0) lib/action_view/lookup_context.rb:121:in `find'
+  C:in `find_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:40:in `determine_template'
+  actionview (4.2.0) lib/action_view/renderer/template_renderer.rb:8:in `render'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:42:in `render_template'
+  actionview (4.2.0) lib/action_view/renderer/renderer.rb:23:in `render'
+  actionview (4.2.0) lib/action_view/rendering.rb:100:in `_render_template'
+  actionpack (4.2.0) lib/action_controller/metal/streaming.rb:217:in `_render_template'
+  actionview (4.2.0) lib/action_view/rendering.rb:83:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:32:in `render_to_body'
+  actionpack (4.2.0) lib/action_controller/metal/renderers.rb:37:in `render_to_body'
+  actionpack (4.2.0) lib/abstract_controller/rendering.rb:25:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:16:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block (2 levels) in render'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `block in ms'
+  C:/Ruby22-x64/lib/ruby/2.2.0/benchmark.rb:303:in `realtime'
+  activesupport (4.2.0) lib/active_support/core_ext/benchmark.rb:12:in `ms'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:41:in `block in render'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:84:in `cleanup_view_runtime'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:25:in `cleanup_view_runtime'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:40:in `render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+  actionpack (4.2.0) lib/action_controller/metal/implicit_render.rb:5:in `send_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:198:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rendering.rb:10:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:20:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:117:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:234:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:169:in `block in halting'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:92:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_process_action_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/abstract_controller/callbacks.rb:19:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/rescue.rb:29:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:31:in `block in process_action'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `block in instrument'
+  activesupport (4.2.0) lib/active_support/notifications/instrumenter.rb:20:in `instrument'
+  activesupport (4.2.0) lib/active_support/notifications.rb:164:in `instrument'
+  actionpack (4.2.0) lib/action_controller/metal/instrumentation.rb:30:in `process_action'
+  actionpack (4.2.0) lib/action_controller/metal/params_wrapper.rb:250:in `process_action'
+  activerecord (4.2.0) lib/active_record/railties/controller_runtime.rb:18:in `process_action'
+  actionpack (4.2.0) lib/abstract_controller/base.rb:137:in `process'
+  actionview (4.2.0) lib/action_view/rendering.rb:30:in `process'
+  actionpack (4.2.0) lib/action_controller/metal.rb:195:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal/rack_delegation.rb:13:in `dispatch'
+  actionpack (4.2.0) lib/action_controller/metal.rb:236:in `block in action'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:73:in `dispatch'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:42:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:43:in `block in serve'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `each'
+  actionpack (4.2.0) lib/action_dispatch/journey/router.rb:30:in `serve'
+  actionpack (4.2.0) lib/action_dispatch/routing/route_set.rb:802:in `call'
+  warden (1.2.6) lib/warden/manager.rb:35:in `block in call'
+  warden (1.2.6) lib/warden/manager.rb:34:in `catch'
+  warden (1.2.6) lib/warden/manager.rb:34:in `call'
+  rack (1.6.4) lib/rack/etag.rb:24:in `call'
+  rack (1.6.4) lib/rack/conditionalget.rb:25:in `call'
+  rack (1.6.4) lib/rack/head.rb:13:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/params_parser.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/flash.rb:260:in `call'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:225:in `context'
+  rack (1.6.4) lib/rack/session/abstract/id.rb:220:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/cookies.rb:560:in `call'
+  activerecord (4.2.0) lib/active_record/query_cache.rb:36:in `call'
+  activerecord (4.2.0) lib/active_record/connection_adapters/abstract/connection_pool.rb:647:in `call'
+  activerecord (4.2.0) lib/active_record/migration.rb:378:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:29:in `block in call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `call'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:88:in `_run_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:734:in `_run_call_callbacks'
+  activesupport (4.2.0) lib/active_support/callbacks.rb:81:in `run_callbacks'
+  actionpack (4.2.0) lib/action_dispatch/middleware/callbacks.rb:27:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/reloader.rb:73:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/remote_ip.rb:78:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/debug_exceptions.rb:17:in `call'
+  web-console (2.3.0) lib/web_console/middleware.rb:28:in `block in call'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `catch'
+  web-console (2.3.0) lib/web_console/middleware.rb:18:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/show_exceptions.rb:30:in `call'
+  railties (4.2.0) lib/rails/rack/logger.rb:38:in `call_app'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `block in call'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `block in tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:26:in `tagged'
+  activesupport (4.2.0) lib/active_support/tagged_logging.rb:68:in `tagged'
+  railties (4.2.0) lib/rails/rack/logger.rb:20:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/request_id.rb:21:in `call'
+  rack (1.6.4) lib/rack/methodoverride.rb:22:in `call'
+  rack (1.6.4) lib/rack/runtime.rb:18:in `call'
+  activesupport (4.2.0) lib/active_support/cache/strategy/local_cache_middleware.rb:28:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  actionpack (4.2.0) lib/action_dispatch/middleware/static.rb:113:in `call'
+  rack (1.6.4) lib/rack/sendfile.rb:113:in `call'
+  railties (4.2.0) lib/rails/engine.rb:518:in `call'
+  railties (4.2.0) lib/rails/application.rb:164:in `call'
+  rack (1.6.4) lib/rack/lock.rb:17:in `call'
+  rack (1.6.4) lib/rack/content_length.rb:15:in `call'
+  rack (1.6.4) lib/rack/handler/webrick.rb:88:in `service'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/httpserver.rb:138:in `service'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/httpserver.rb:94:in `run'
+  C:/Ruby22-x64/lib/ruby/2.2.0/webrick/server.rb:294:in `block in start_thread'
+
+
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (3.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/missing_template.html.erb within rescues/layout (590.5ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (546.6ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (1550.2ms)
+
+
+Started GET "/posts/new" for ::1 at 2016-10-26 23:34:52 +0700
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 2177ms (Views: 2176.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-10-26 23:35:07 +0700
+
+
+Started GET "/assets/application.self-e80e8f2318043e8af94dddc2adad5a4f09739a8ebb323b3ab31cd71d45fd9113.css?body=1" for ::1 at 2016-10-26 23:35:07 +0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-10-26 23:35:08 +0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-10-26 23:35:08 +0700
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-10-26 23:35:08 +0700
+
+
+Started GET "/posts/new" for ::1 at 2016-10-26 23:36:04 +0700
+Processing by PostsController#new as HTML
+  Rendered posts/new.html.haml within layouts/application (10.0ms)
+Completed 500 Internal Server Error in 47ms
+
+ActionView::Template::Error (The partial name ( form) is not a valid Ruby identifier; make sure your partial name starts with a lowercase letter or underscore, and is followed by any combination of letters, numbers and underscores.):
+    1: %h1 New Post
+    2: 
+    3: = render ' form'
+  app/views/posts/new.html.haml:3:in `_app_views_posts_new_html_haml___729297310_88518540'
+
+
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (8.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (2.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (1108.8ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (0.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (714.5ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (1474.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2016-10-26 23:36:18 +0700
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.haml (443.1ms)
+  Rendered posts/new.html.haml within layouts/application (453.2ms)
+Completed 200 OK in 561ms (Views: 560.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2016-10-26 23:37:22 +0700
+Processing by PostsController#new as HTML
+  Rendered posts/_form.html.haml (6.0ms)
+  Rendered posts/new.html.haml within layouts/application (14.0ms)
+Completed 200 OK in 83ms (Views: 70.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2016-10-26 23:39:20 +0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"6qpg/RT5ktfOT8sPVZDvjY1kNw/zxMc7oqByj8WtGQxzXch2UQs4UoxtYTj4LcCNc3UMFV2Jihh1fzdWBFAlTw==", "post"=>{"title"=>"Lombok Post", "content"=>"Diberitakan sebelumnya, proyek distribusi air minum dari Teluk Nara menuju objek wisata Gili Air dan Gili Terawangan mangkrak. Pembangunan yang menelan APBN hingga Rp 12 miliar ini kondisinya rusak parah.\r\n\r\nTerkait hal ini Ardhi mengatakan, pihaknya belum tahu persis data proyek distribusi air bersih dari Teluk Nara ke Gili Air dan Gili Terawangan. Sebab saat pengerjaan ia masih menjabat di Bidang Tata Ruang. ”Kita cek dulu nanti siapa operatornya,” kata Ardhi.\r\n\r\nMenurutnya, bangunan yang tidak dipakai pasti rusak. Untuk itu, mestinya pihak operator dalam hal ini PDAM melakukan perawatan. Sebab mereka yang menggunakan fasilitas tersebut.\r\n\r\nDemikian juga halnya dengan proyek pengadaan air bersih di Pulau Maringkik. Proyek tersebut menurutnya sudah berjalan, airnya mengalir tiga kali dalam seminggu dan sudah dinikmati oleh masyarakat. Operatornya adalah PDAM Lombok Timur dan mereka yang melakukan perawatan."}, "commit"=>"Create Post"}
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (2.0ms)[0m  [1mINSERT INTO "posts" ("title", "content", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "Lombok Post"], ["content", "Diberitakan sebelumnya, proyek distribusi air minum dari Teluk Nara menuju objek wisata Gili Air dan Gili Terawangan mangkrak. Pembangunan yang menelan APBN hingga Rp 12 miliar ini kondisinya rusak parah.\r\n\r\nTerkait hal ini Ardhi mengatakan, pihaknya belum tahu persis data proyek distribusi air bersih dari Teluk Nara ke Gili Air dan Gili Terawangan. Sebab saat pengerjaan ia masih menjabat di Bidang Tata Ruang. ”Kita cek dulu nanti siapa operatornya,” kata Ardhi.\r\n\r\nMenurutnya, bangunan yang tidak dipakai pasti rusak. Untuk itu, mestinya pihak operator dalam hal ini PDAM melakukan perawatan. Sebab mereka yang menggunakan fasilitas tersebut.\r\n\r\nDemikian juga halnya dengan proyek pengadaan air bersih di Pulau Maringkik. Proyek tersebut menurutnya sudah berjalan, airnya mengalir tiga kali dalam seminggu dan sudah dinikmati oleh masyarakat. Operatornya adalah PDAM Lombok Timur dan mereka yang melakukan perawatan."], ["created_at", "2016-10-26 16:39:20.664747"], ["updated_at", "2016-10-26 16:39:20.664747"]]
+  [1m[35m (88.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 145ms (ActiveRecord: 92.2ms)
+
+
+Started GET "/posts/1" for ::1 at 2016-10-26 23:39:20 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/show.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 266ms (Views: 199.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2016-10-26 23:46:54 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/show.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 72ms (Views: 64.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/1/edit" for ::1 at 2016-10-26 23:48:10 +0700
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/_form.html.haml (7.0ms)
+  Rendered posts/edit.html.haml within layouts/application (17.0ms)
+Completed 200 OK in 76ms (Views: 72.6ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/posts/1" for ::1 at 2016-10-26 23:48:15 +0700
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"hbhKas2lHKyBaQw/93ag6g4vhq6zfibwqCNobFSYkMYcT+LhiFe2KcNLpghay4/q8D69tB0za9N//C21lWWshQ==", "post"=>{"title"=>"Lombok Post", "content"=>"Proyek distribusi air minum dari Teluk Nara menuju objek wisata Gili Air dan Gili Terawangan mangkrak. Pembangunan yang menelan APBN hingga Rp 12 miliar ini kondisinya rusak parah.\r\n\r\nTerkait hal ini Ardhi mengatakan, pihaknya belum tahu persis data proyek distribusi air bersih dari Teluk Nara ke Gili Air dan Gili Terawangan. Sebab saat pengerjaan ia masih menjabat di Bidang Tata Ruang. ”Kita cek dulu nanti siapa operatornya,” kata Ardhi.\r\n\r\nMenurutnya, bangunan yang tidak dipakai pasti rusak. Untuk itu, mestinya pihak operator dalam hal ini PDAM melakukan perawatan. Sebab mereka yang menggunakan fasilitas tersebut.\r\n\r\nDemikian juga halnya dengan proyek pengadaan air bersih di Pulau Maringkik. Proyek tersebut menurutnya sudah berjalan, airnya mengalir tiga kali dalam seminggu dan sudah dinikmati oleh masyarakat. Operatornya adalah PDAM Lombok Timur dan mereka yang melakukan perawatan."}, "commit"=>"Update Post", "id"=>"1"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (2.0ms)[0m  UPDATE "posts" SET "content" = ?, "updated_at" = ? WHERE "posts"."id" = ?  [["content", "Proyek distribusi air minum dari Teluk Nara menuju objek wisata Gili Air dan Gili Terawangan mangkrak. Pembangunan yang menelan APBN hingga Rp 12 miliar ini kondisinya rusak parah.\r\n\r\nTerkait hal ini Ardhi mengatakan, pihaknya belum tahu persis data proyek distribusi air bersih dari Teluk Nara ke Gili Air dan Gili Terawangan. Sebab saat pengerjaan ia masih menjabat di Bidang Tata Ruang. ”Kita cek dulu nanti siapa operatornya,” kata Ardhi.\r\n\r\nMenurutnya, bangunan yang tidak dipakai pasti rusak. Untuk itu, mestinya pihak operator dalam hal ini PDAM melakukan perawatan. Sebab mereka yang menggunakan fasilitas tersebut.\r\n\r\nDemikian juga halnya dengan proyek pengadaan air bersih di Pulau Maringkik. Proyek tersebut menurutnya sudah berjalan, airnya mengalir tiga kali dalam seminggu dan sudah dinikmati oleh masyarakat. Operatornya adalah PDAM Lombok Timur dan mereka yang melakukan perawatan."], ["updated_at", "2016-10-26 16:48:16.159571"], ["id", 1]]
+  [1m[36m (162.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/1
+Completed 302 Found in 344ms (ActiveRecord: 164.0ms)
+
+
+Started GET "/posts/1" for ::1 at 2016-10-26 23:48:16 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/show.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 202ms (Views: 198.5ms | ActiveRecord: 0.0ms)
