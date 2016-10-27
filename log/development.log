@@ -452,3 +452,85 @@ Processing by PostsController#index as HTML
   [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts"  ORDER BY created_at DESC[0m
   Rendered posts/index.html.haml within layouts/application (10.0ms)
 Completed 200 OK in 81ms (Views: 77.4ms | ActiveRecord: 1.0ms)
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to AddUserIdToPosts (20161027013027)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mALTER TABLE "posts" ADD "user_id" integer[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20161027013027"]]
+  [1m[36m (166.8ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (1.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" ASC LIMIT 1[0m
+
+
+Started GET "/posts/new" for ::1 at 2016-10-27 08:31:23 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#new as HTML
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered posts/_form.html.haml (56.1ms)
+  Rendered posts/new.html.haml within layouts/application (72.1ms)
+Completed 200 OK in 452ms (Views: 372.8ms | ActiveRecord: 1.0ms)
+
+
+Started POST "/posts" for ::1 at 2016-10-27 08:34:51 +0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"stcVk0xjGWZ4zMdIloIvc9lmHWwiPfeOAAv1DgwFnt4rIL0YCZGz4zrubX87PwBzJ3cmdoxwuq3X1LDXzfiinQ==", "post"=>{"title"=>"Jawa Post", "content"=>"Jawa Pos didirikan oleh The Chung Shen pada 1 Juli 1949 dengan nama Djava-Post. Saat itu The Chung Shen hanyalah seorang pegawai bagian iklan sebuah bioskop di Surabaya. Karena setiap hari dia harus memasang iklan bioskop di surat kabar, lama-lama ia tertarik untuk membuat surat kabar sendiri. Setelah sukses dengan Jawa Pos-nya, The Chung Shen mendirikan pula koran berbahasa Mandarin Hwa Chiao Sien Wen dan Belanda de Vrije Pers.\r\nBisnis The Chung Shen di bidang surat kabar tidak selamanya mulus. Pada akhir tahun 1970-an, omzet Jawa Pos mengalami kemerosotan yang tajam. Tahun 1982, oplahnya hanya tinggal 6.800 eksemplar saja. Koran-korannya yang lain sudah lebih dulu pensiun. Ketika usianya menginjak 80 tahun, The Chung Shen akhirnya memutuskan untuk menjual Jawa Pos. Dia merasa tidak mampu lagi mengurus perusahaannya, sementara tiga orang anaknya lebih memilih tinggal di London, Inggris."}, "commit"=>"Create Post"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (1.0ms)[0m  [1mINSERT INTO "posts" ("title", "content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)[0m  [["title", "Jawa Post"], ["content", "Jawa Pos didirikan oleh The Chung Shen pada 1 Juli 1949 dengan nama Djava-Post. Saat itu The Chung Shen hanyalah seorang pegawai bagian iklan sebuah bioskop di Surabaya. Karena setiap hari dia harus memasang iklan bioskop di surat kabar, lama-lama ia tertarik untuk membuat surat kabar sendiri. Setelah sukses dengan Jawa Pos-nya, The Chung Shen mendirikan pula koran berbahasa Mandarin Hwa Chiao Sien Wen dan Belanda de Vrije Pers.\r\nBisnis The Chung Shen di bidang surat kabar tidak selamanya mulus. Pada akhir tahun 1970-an, omzet Jawa Pos mengalami kemerosotan yang tajam. Tahun 1982, oplahnya hanya tinggal 6.800 eksemplar saja. Koran-korannya yang lain sudah lebih dulu pensiun. Ketika usianya menginjak 80 tahun, The Chung Shen akhirnya memutuskan untuk menjual Jawa Pos. Dia merasa tidak mampu lagi mengurus perusahaannya, sementara tiga orang anaknya lebih memilih tinggal di London, Inggris."], ["user_id", 1], ["created_at", "2016-10-27 01:34:51.759160"], ["updated_at", "2016-10-27 01:34:51.759160"]]
+  [1m[35m (305.9ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/2
+Completed 302 Found in 323ms (ActiveRecord: 306.9ms)
+
+
+Started GET "/posts/2" for ::1 at 2016-10-27 08:34:52 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered posts/show.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 68ms (Views: 62.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2016-10-27 08:34:58 +0700
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts"  ORDER BY created_at DESC
+  Rendered posts/index.html.haml within layouts/application (4.0ms)
+Completed 200 OK in 65ms (Views: 64.6ms | ActiveRecord: 0.0ms)
+  [1m[35mPost Load (0.0ms)[0m  SELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" DESC LIMIT 1
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT  "posts".* FROM "posts"  ORDER BY "posts"."id" ASC LIMIT 1[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mUPDATE "posts" SET "user_id" = ?, "updated_at" = ? WHERE "posts"."id" = ?[0m  [["user_id", 1], ["updated_at", "2016-10-27 01:35:30.123482"], ["id", 1]]
+  [1m[35m (173.0ms)[0m  commit transaction
+
+
+Started GET "/" for ::1 at 2016-10-27 08:36:31 +0700
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"  ORDER BY created_at DESC[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/index.html.haml within layouts/application (9.0ms)
+Completed 200 OK in 72ms (Views: 70.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2016-10-27 08:36:43 +0700
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (1.0ms)[0m  SELECT "posts".* FROM "posts"  ORDER BY created_at DESC
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/index.html.haml within layouts/application (7.0ms)
+Completed 200 OK in 70ms (Views: 68.2ms | ActiveRecord: 1.0ms)
