@@ -1016,3 +1016,443 @@ Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde45
 
 
 Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-11-01 00:03:45 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (0.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Migrating to CreateComments (20161031170617)
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (1.0ms)[0m  [1mCREATE TABLE "comments" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "comment" text, "post_id" integer, "user_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL) [0m
+  [1m[35m (0.0ms)[0m  select sqlite_version(*)
+  [1m[36m (0.0ms)[0m  [1mCREATE  INDEX "index_comments_on_post_id" ON "comments" ("post_id")[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1mCREATE  INDEX "index_comments_on_user_id" ON "comments" ("user_id")[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES (?)  [["version", "20161031170617"]]
+  [1m[36m (120.2ms)[0m  [1mcommit transaction[0m
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_user_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_user_id' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_comments_on_post_id' AND type='index'
+
+  [1m[36m (0.0ms)[0m  [1m            SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_reset_password_token' AND type='index'
+[0m
+  [1m[35m (0.0ms)[0m              SELECT sql
+            FROM sqlite_master
+            WHERE name='index_users_on_email' AND type='index'
+            UNION ALL
+            SELECT sql
+            FROM sqlite_temp_master
+            WHERE name='index_users_on_email' AND type='index'
+
+
+
+Started GET "/posts/2" for ::1 at 2016-11-01 00:14:55 +0700
+  [1m[35mActiveRecord::SchemaMigration Load (0.0ms)[0m  SELECT "schema_migrations".* FROM "schema_migrations"
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered posts/show.html.haml within layouts/application (13.0ms)
+Completed 500 Internal Server Error in 57ms
+
+ActionView::Template::Error (undefined method `coments' for #<Post:0x0000000b2ebc78>):
+    3:   %p= @post.content
+    4: 
+    5:   #comments
+    6:     %h2= @post.coments.count
+    7:     = render @post.comments
+    8: 
+    9:     %h3 Reply to thread
+  app/views/posts/show.html.haml:6:in `_app_views_posts_show_html_haml__767852267_93786900'
+
+
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (4.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (434.4ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (373.3ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (855.6ms)
+
+
+Started GET "/posts/2" for ::1 at 2016-11-01 00:15:23 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 2]]
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 2]]
+  Rendered collection (0.0ms)
+  Rendered comments/_form.html.haml (306.2ms)
+  Rendered posts/show.html.haml within layouts/application (354.5ms)
+Completed 200 OK in 544ms (Views: 541.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/comments.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-11-01 00:15:23 +0700
+
+
+Started GET "/assets/comments.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-11-01 00:15:23 +0700
+
+
+Started GET "/users/sign_in" for ::1 at 2016-11-01 00:17:19 +0700
+Processing by Devise::SessionsController#new as HTML
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/devise-3.4.1/app/views/devise/shared/_links.html.erb (7.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/devise-3.4.1/app/views/devise/sessions/new.html.erb within layouts/application (131.4ms)
+Completed 200 OK in 270ms (Views: 248.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for ::1 at 2016-11-01 00:17:24 +0700
+Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JUSM4mz/NYWYazLESGDh+ux9Sj0/S1in39Prb6Aa000MQMy+M+aAAB0sZJ7M6hQ2y21dZpNJGbyv94LHaRvxog==", "user"=>{"email"=>"hendriktekayadi@gmail.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Log in"}
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."email" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["email", "hendriktekayadi@gmail.com"]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = ?, "sign_in_count" = ?, "updated_at" = ? WHERE "users"."id" = ?[0m  [["current_sign_in_at", "2016-10-31 17:17:24.357246"], ["sign_in_count", 2], ["updated_at", "2016-10-31 17:17:24.358247"], ["id", 1]]
+  [1m[35m (74.1ms)[0m  commit transaction
+Redirected to http://localhost:3000/
+Completed 302 Found in 298ms (ActiveRecord: 74.1ms)
+
+
+Started GET "/" for ::1 at 2016-11-01 00:17:24 +0700
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT "posts".* FROM "posts"  ORDER BY created_at DESC[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/index.html.haml within layouts/application (10.0ms)
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 90ms (Views: 86.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/new" for ::1 at 2016-11-01 00:17:34 +0700
+Processing by PostsController#new as HTML
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered posts/_form.html.haml (6.0ms)
+  Rendered posts/new.html.haml within layouts/application (16.0ms)
+Completed 200 OK in 88ms (Views: 82.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts" for ::1 at 2016-11-01 00:21:23 +0700
+Processing by PostsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"I1CFpGs76zV6YlpqIBypft8E0+PY+PZJCjIelWvv2pTzAhrNFsJFYtkYuxKq5yaZijGG/k8pi+27qBVusUm7OA==", "post"=>{"title"=>"Bali Post", "content"=>"SINGARAJA, BALIPOST.com – Calon petahanan Putu Agus Suradnyana dan dr. Nyoman Sutjidra, Sp.OG. (Pas-Sutjidra) akhirnya ditetapkan menjadi calon tetap oleh KPU Kabupaten Buleleng Senin (31/10). Pas-Sutjidra merupakan calon tunggal yang pertama kalinya dalam sejarah dalam Pilkada di Bali. Meski telah melakukan penetapan, namun teknis pemilihan calon tunggal, nampaknya belum siap terutama dalam hal desain surat suara. Pasangan incumbent tersebut dalam pencoblosan akan melawan “kotak kosong.”"}, "commit"=>"Create Post"}
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "posts" ("title", "content", "user_id", "created_at", "updated_at") VALUES (?, ?, ?, ?, ?)  [["title", "Bali Post"], ["content", "SINGARAJA, BALIPOST.com – Calon petahanan Putu Agus Suradnyana dan dr. Nyoman Sutjidra, Sp.OG. (Pas-Sutjidra) akhirnya ditetapkan menjadi calon tetap oleh KPU Kabupaten Buleleng Senin (31/10). Pas-Sutjidra merupakan calon tunggal yang pertama kalinya dalam sejarah dalam Pilkada di Bali. Meski telah melakukan penetapan, namun teknis pemilihan calon tunggal, nampaknya belum siap terutama dalam hal desain surat suara. Pasangan incumbent tersebut dalam pencoblosan akan melawan “kotak kosong.”"], ["user_id", 1], ["created_at", "2016-10-31 17:21:23.427398"], ["updated_at", "2016-10-31 17:21:23.427398"]]
+  [1m[36m (111.2ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 141ms (ActiveRecord: 112.2ms)
+
+
+Started GET "/posts/3" for ::1 at 2016-11-01 00:21:23 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 3]]
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  Rendered comments/_form.html.haml (8.0ms)
+  Rendered posts/show.html.haml within layouts/application (26.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 121ms (Views: 117.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2016-11-01 00:21:29 +0700
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts"  ORDER BY created_at DESC
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/index.html.haml within layouts/application (8.0ms)
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 76ms (Views: 75.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/3" for ::1 at 2016-11-01 00:21:41 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  Rendered comments/_form.html.haml (6.0ms)
+  Rendered posts/show.html.haml within layouts/application (25.0ms)
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 123ms (Views: 120.9ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts/3/comments" for ::1 at 2016-11-01 00:21:56 +0700
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"i0TnahNQFEiYnBNex/ZAFxrKlD+VenwRelawukSjQ/pbFngDbqm6Hzvm8iZNDc/wT//BIgKrAbXLzLtBngUiVg==", "comment"=>{"comment"=>"Good and nice"}, "commit"=>"Create Comment", "post_id"=>"3"}
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mINSERT INTO "comments" ("comment", "post_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["comment", "Good and nice"], ["post_id", 3], ["created_at", "2016-10-31 17:21:56.332337"], ["updated_at", "2016-10-31 17:21:56.332337"]]
+  [1m[35m (106.1ms)[0m  commit transaction
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  [1m[35m (1.0ms)[0m  begin transaction
+  [1m[36mSQL (0.0ms)[0m  [1mUPDATE "comments" SET "user_id" = ?, "updated_at" = ? WHERE "comments"."id" = ?[0m  [["user_id", 1], ["updated_at", "2016-10-31 17:21:56.443414"], ["id", 1]]
+  [1m[35m (94.2ms)[0m  commit transaction
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35m (0.0ms)[0m  commit transaction
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 214ms (ActiveRecord: 201.3ms)
+
+
+Started GET "/posts/3" for ::1 at 2016-11-01 00:21:56 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (0.0ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 3]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered comments/_comment.html.haml (4.0ms)
+  Rendered comments/_form.html.haml (3.0ms)
+  Rendered posts/show.html.haml within layouts/application (32.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 101ms (Views: 98.5ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/3" for ::1 at 2016-11-01 00:25:06 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 3]]
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered comments/_comment.html.haml (16.0ms)
+  Rendered comments/_form.html.haml (4.0ms)
+  Rendered posts/show.html.haml within layouts/application (62.0ms)
+  [1m[35mUser Load (1.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 142ms (Views: 128.3ms | ActiveRecord: 4.0ms)
+
+
+Started DELETE "/posts/3/comments/1" for ::1 at 2016-11-01 00:25:11 +0700
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"UFuz8X3xOIJiWjLF3nB72p6XtsQbT4SteQTMpSmieUeACSyYAAiW1cEg071Ui/Q9y6Lj2Yye+QnInsde8wQY6w==", "post_id"=>"3", "id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mComment Load (0.0ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = ? AND "comments"."id" = ? LIMIT 1  [["post_id", 3], ["id", 1]]
+Completed 500 Internal Server Error in 6ms
+
+NoMethodError (undefined method `destroy' for nil:NilClass):
+  app/controllers/comments_controller.rb:18:in `destroy'
+
+
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_source.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (2.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/actionpack-4.2.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.html.erb within rescues/layout (459.3ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_markup.html.erb (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_inner_console_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/_prompt_box_markup.html.erb within layouts/inlined_string (0.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/style.css.erb within layouts/inlined_string (1.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/console.js.erb within layouts/javascript (408.3ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/main.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/error_page.js.erb within layouts/javascript (0.0ms)
+  Rendered C:/Ruby22-x64/lib/ruby/gems/2.2.0/gems/web-console-2.3.0/lib/web_console/templates/index.html.erb (928.7ms)
+
+
+Started DELETE "/posts/3/comments/1" for ::1 at 2016-11-01 00:25:46 +0700
+Processing by CommentsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"UFuz8X3xOIJiWjLF3nB72p6XtsQbT4SteQTMpSmieUeACSyYAAiW1cEg071Ui/Q9y6Lj2Yye+QnInsde8wQY6w==", "post_id"=>"3", "id"=>"1"}
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mComment Load (0.0ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = ? AND "comments"."id" = ? LIMIT 1  [["post_id", 3], ["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "comments" WHERE "comments"."id" = ?  [["id", 1]]
+  [1m[36m (112.1ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 135ms (ActiveRecord: 112.1ms)
+
+
+Started GET "/posts/3" for ::1 at 2016-11-01 00:25:46 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 3]]
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  Rendered comments/_form.html.haml (4.0ms)
+  Rendered posts/show.html.haml within layouts/application (18.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 118ms (Views: 114.4ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/" for ::1 at 2016-11-01 00:29:00 +0700
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts"  ORDER BY created_at DESC
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/index.html.haml within layouts/application (21.0ms)
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 127ms (Views: 122.7ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/3" for ::1 at 2016-11-01 00:29:01 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35m (1.0ms)[0m  SELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  [1m[36mComment Load (1.0ms)[0m  [1mSELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  Rendered comments/_form.html.haml (13.0ms)
+  Rendered posts/show.html.haml within layouts/application (35.0ms)
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 163ms (Views: 157.4ms | ActiveRecord: 3.0ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2016-11-01 00:29:10 +0700
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  Rendered posts/_form.html.haml (5.0ms)
+  Rendered posts/edit.html.haml within layouts/application (15.0ms)
+Completed 200 OK in 101ms (Views: 81.3ms | ActiveRecord: 1.0ms)
+
+
+Started PATCH "/posts/3" for ::1 at 2016-11-01 00:29:29 +0700
+Processing by PostsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"FVYfGa/1f6qlPI0ULejBke5B5JeW0giPGni9gXT1sS3FBIBw0gzR/QZGbGynE052u3SxigEDdSur4rZ6rlPQgQ==", "post"=>{"title"=>"Bali Post", "content"=>"SINGARAJA, BALIPOST.com – Calon petahanan Putu Agus Suradnyana dan dr. Nyoman Sutjidra, Sp.OG. (Pas-Sutjidra) akhirnya ditetapkan menjadi calon tetap oleh KPU Kabupaten Buleleng Senin (31/10). Pas-Sutjidra merupakan calon tunggal yang pertama kalinya dalam sejarah dalam Pilkada di Bali. Meski telah melakukan penetapan, namun teknis pemilihan calon tunggal, nampaknya belum siap terutama dalam desain surat suara. Pasangan incumbent tersebut dalam pencoblosan akan melawan “kotak kosong.”"}, "commit"=>"Update Post", "id"=>"3"}
+  [1m[36mPost Load (1.0ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "posts" SET "content" = ?, "updated_at" = ? WHERE "posts"."id" = ?  [["content", "SINGARAJA, BALIPOST.com – Calon petahanan Putu Agus Suradnyana dan dr. Nyoman Sutjidra, Sp.OG. (Pas-Sutjidra) akhirnya ditetapkan menjadi calon tetap oleh KPU Kabupaten Buleleng Senin (31/10). Pas-Sutjidra merupakan calon tunggal yang pertama kalinya dalam sejarah dalam Pilkada di Bali. Meski telah melakukan penetapan, namun teknis pemilihan calon tunggal, nampaknya belum siap terutama dalam desain surat suara. Pasangan incumbent tersebut dalam pencoblosan akan melawan “kotak kosong.”"], ["updated_at", "2016-10-31 17:29:29.332026"], ["id", 3]]
+  [1m[36m (160.4ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 173ms (ActiveRecord: 162.4ms)
+
+
+Started GET "/posts/3" for ::1 at 2016-11-01 00:29:29 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (1.0ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 3]]
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  Rendered comments/_form.html.haml (4.0ms)
+  Rendered posts/show.html.haml within layouts/application (17.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 109ms (Views: 105.8ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/3/edit" for ::1 at 2016-11-01 00:31:23 +0700
+Processing by PostsController#edit as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mUser Load (1.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+  Rendered posts/_form.html.haml (6.0ms)
+  Rendered posts/edit.html.haml within layouts/application (14.0ms)
+Completed 200 OK in 82ms (Views: 78.0ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/posts/3" for ::1 at 2016-11-01 00:31:32 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 3]]
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  Rendered collection (0.0ms)
+  Rendered comments/_form.html.haml (5.0ms)
+  Rendered posts/show.html.haml within layouts/application (18.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 108ms (Views: 104.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/posts/3/comments" for ::1 at 2016-11-01 00:31:42 +0700
+Processing by CommentsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"82oDXyqcry/dsECvZyS1EMltPXEQbINzKMZgqdPicc8jOJw2V2UBeH7Kodft3zr3nFhobIe9/teZXGtSCUQQYw==", "comment"=>{"comment"=>"Follow gan"}, "commit"=>"Create Comment", "post_id"=>"3"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (1.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  INSERT INTO "comments" ("comment", "post_id", "created_at", "updated_at") VALUES (?, ?, ?, ?)  [["comment", "Follow gan"], ["post_id", 3], ["created_at", "2016-10-31 17:31:42.498676"], ["updated_at", "2016-10-31 17:31:42.498676"]]
+  [1m[36m (125.9ms)[0m  [1mcommit transaction[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (1.0ms)[0m  UPDATE "comments" SET "user_id" = ?, "updated_at" = ? WHERE "comments"."id" = ?  [["user_id", 1], ["updated_at", "2016-10-31 17:31:42.632577"], ["id", 2]]
+  [1m[36m (99.6ms)[0m  [1mcommit transaction[0m
+  [1m[35m (0.0ms)[0m  begin transaction
+  [1m[36m (0.0ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 247ms (ActiveRecord: 228.5ms)
+
+
+Started GET "/posts/3" for ::1 at 2016-11-01 00:31:42 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 3]]
+  [1m[35mComment Load (0.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered comments/_comment.html.haml (6.0ms)
+  Rendered comments/_form.html.haml (4.0ms)
+  Rendered posts/show.html.haml within layouts/application (32.0ms)
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 142ms (Views: 139.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/3/comments/2/edit" for ::1 at 2016-11-01 00:31:44 +0700
+Processing by CommentsController#edit as HTML
+  Parameters: {"post_id"=>"3", "id"=>"2"}
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mComment Load (0.0ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = ? AND "comments"."id" = ? LIMIT 1  [["post_id", 3], ["id", 2]]
+  Rendered comments/_form.html.haml (4.0ms)
+  Rendered comments/edit.html.haml within layouts/application (13.0ms)
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1[0m  [["id", 1]]
+Completed 200 OK in 79ms (Views: 75.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/posts/3/comments/2/edit" for ::1 at 2016-11-01 00:32:51 +0700
+Processing by CommentsController#edit as HTML
+  Parameters: {"post_id"=>"3", "id"=>"2"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36mComment Load (0.0ms)[0m  [1mSELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = ? AND "comments"."id" = ? LIMIT 1[0m  [["post_id", 3], ["id", 2]]
+  Rendered comments/edit.html.haml within layouts/application (5.0ms)
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 76ms (Views: 71.6ms | ActiveRecord: 0.0ms)
+
+
+Started PATCH "/posts/3/comments/2" for ::1 at 2016-11-01 00:32:57 +0700
+Processing by CommentsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ixsmLqTyf+jIETNHk9BuP1VxHE0lbaE2ldH3l/ovbsFbSblH2QvRv2tr0j8ZK+HYAERJULK83JIkS/xsIIkPbQ==", "comment"=>{"comment"=>"Follow gan!"}, "commit"=>"Update Comment", "post_id"=>"3", "id"=>"2"}
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 3]]
+  [1m[35mComment Load (0.0ms)[0m  SELECT  "comments".* FROM "comments" WHERE "comments"."post_id" = ? AND "comments"."id" = ? LIMIT 1  [["post_id", 3], ["id", 2]]
+  [1m[36m (0.0ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.0ms)[0m  UPDATE "comments" SET "comment" = ?, "updated_at" = ? WHERE "comments"."id" = ?  [["comment", "Follow gan!"], ["updated_at", "2016-10-31 17:32:57.241372"], ["id", 2]]
+  [1m[36m (143.9ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/posts/3
+Completed 302 Found in 152ms (ActiveRecord: 143.9ms)
+
+
+Started GET "/posts/3" for ::1 at 2016-11-01 00:32:57 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[35mPost Load (1.0ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 3]]
+  [1m[36m (0.0ms)[0m  [1mSELECT COUNT(*) FROM "comments" WHERE "comments"."post_id" = ?[0m  [["post_id", 3]]
+  [1m[35mComment Load (1.0ms)[0m  SELECT "comments".* FROM "comments" WHERE "comments"."post_id" = ?  [["post_id", 3]]
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered comments/_comment.html.haml (3.0ms)
+  Rendered comments/_form.html.haml (5.0ms)
+  Rendered posts/show.html.haml within layouts/application (34.0ms)
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ?  ORDER BY "users"."id" ASC LIMIT 1  [["id", 1]]
+Completed 200 OK in 137ms (Views: 134.1ms | ActiveRecord: 2.0ms)
