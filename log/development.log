@@ -804,3 +804,73 @@ Completed 200 OK in 100ms (Views: 98.2ms | ActiveRecord: 1.0ms)
 
 
 Started GET "/assets/application.self-c3f57103f4ce5c3eab63092eab931ed13b1d37695593bd7ed60312e1f7c39e4e.css?body=1" for ::1 at 2016-10-27 09:10:03 +0700
+
+
+Started GET "/" for ::1 at 2016-10-31 23:50:54 +0700
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by PostsController#index as HTML
+  [1m[35mPost Load (0.0ms)[0m  SELECT "posts".* FROM "posts"  ORDER BY created_at DESC
+  [1m[36mUser Load (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  [1m[35mCACHE (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  Rendered posts/index.html.haml within layouts/application (204.3ms)
+Completed 200 OK in 986ms (Views: 931.1ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for ::1 at 2016-10-31 23:51:09 +0700
+Processing by PostsController#index as HTML
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT "posts".* FROM "posts"  ORDER BY created_at DESC[0m
+  [1m[35mUser Load (0.0ms)[0m  SELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1  [["id", 1]]
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT  "users".* FROM "users" WHERE "users"."id" = ? LIMIT 1[0m  [["id", 1]]
+  Rendered posts/index.html.haml within layouts/application (6.0ms)
+Completed 200 OK in 69ms (Views: 68.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/posts.self-e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855.css?body=1" for ::1 at 2016-10-31 23:51:09 +0700
+
+
+Started GET "/assets/application.self-e923e38587900eb1488cef9c52b574f3b4d3d62e1d7b2cddaa6f638aaa8e47e0.css?body=1" for ::1 at 2016-10-31 23:51:09 +0700
+
+
+Started GET "/assets/turbolinks.self-c5acd7a204f5f25ce7a1d8a0e4d92e28d34c9e2df2c7371cd7af88e147e4ad82.js?body=1" for ::1 at 2016-10-31 23:51:09 +0700
+
+
+Started GET "/assets/jquery_ujs.self-784a997f6726036b1993eb2217c9cb558e1cbb801c6da88105588c56f13b466a.js?body=1" for ::1 at 2016-10-31 23:51:09 +0700
+
+
+Started GET "/assets/posts.self-877aef30ae1b040ab8a3aba4e3e309a11d7f2612f44dde450b5c157aa5f95c05.js?body=1" for ::1 at 2016-10-31 23:51:09 +0700
+
+
+Started GET "/assets/application.self-3a3c8b61bda630ee689740ce7cbd0dd8ea6fdd45e2c42eef4661ab38cf268afe.js?body=1" for ::1 at 2016-10-31 23:51:09 +0700
+
+
+Started GET "/posts/2" for ::1 at 2016-10-31 23:51:47 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered posts/show.html.haml within layouts/application (2.0ms)
+Completed 200 OK in 157ms (Views: 100.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-2f9073122990cd8826663eeb556a51f6ea64daeaa8da608eee40ae25ea40f15b.css?body=1" for ::1 at 2016-10-31 23:51:47 +0700
+
+
+Started GET "/posts/2" for ::1 at 2016-10-31 23:52:13 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mPost Load (0.0ms)[0m  [1mSELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1[0m  [["id", 2]]
+  Rendered posts/show.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 87ms (Views: 84.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-6bdb42d232f183693fa509c3ec355125540a94db18829d280dc40fa3348a5181.css?body=1" for ::1 at 2016-10-31 23:52:13 +0700
+
+
+Started GET "/posts/2" for ::1 at 2016-10-31 23:54:47 +0700
+Processing by PostsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[35mPost Load (0.0ms)[0m  SELECT  "posts".* FROM "posts" WHERE "posts"."id" = ? LIMIT 1  [["id", 2]]
+  Rendered posts/show.html.haml within layouts/application (1.0ms)
+Completed 200 OK in 87ms (Views: 85.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/application.self-bb98f41af94e5950911a18a4e60fb6797c1d59140d9fb48c9ca980b9d1964edd.css?body=1" for ::1 at 2016-10-31 23:54:47 +0700
